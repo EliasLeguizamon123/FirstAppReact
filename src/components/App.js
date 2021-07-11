@@ -1,4 +1,4 @@
-import {SimpleGrid, Grid, } from '@chakra-ui/react'
+import {SimpleGrid, Grid, Container } from '@chakra-ui/react'
 import axios from 'axios';
 import {useEffect, useState} from 'react'
 import NavBar from './NavBar';
@@ -19,15 +19,16 @@ function App() {
     useEffect(() =>{
         fetchChallenges()
     }, []);
-    
   return (
       <Grid>
           <NavBar />
-          {challenges.map(challenge =>(
-            <SimpleGrid columns={3} spacing="30px" minChildWidth="sm" alignItems="center">
-                <Card key={challenge.index} {...challenge}/>
+          <Container maxW="container.xl">
+            <SimpleGrid columns={{lg: 4, md: 3, sm: 2}} spacing={6} my={12}>
+            {challenges.map((challenge, index) =>(
+                    <Card key={index} {...challenge} />
+                ))}
             </SimpleGrid>
-          ))}
+          </Container>
       </Grid>
   );
 }

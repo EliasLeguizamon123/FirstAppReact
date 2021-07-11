@@ -34,7 +34,7 @@ import {
           minH={'60px'}
           py={{ base: 2 }}
           px={{ base: 4 }}
-          borderBottom={1}
+
           borderStyle={'solid'}
           borderColor={useColorModeValue('gray.200', 'gray.900')}
           align={'center'}>
@@ -52,12 +52,6 @@ import {
             />
           </Flex>
           <Flex flex={{ base: 1 }} justify={{ base: 'center', md: 'start' }}> 
-            {/*<Text
-              textAlign={useBreakpointValue({ base: 'center', md: 'left' })}
-              fontFamily={'heading'}
-              color={useColorModeValue('gray.800', 'white')}>
-               Logo{/*Here i can change my logo when i have one }
-            </Text>  */}
             <Box h="4rem" w="4rem">
                 <Image src={Logo} alt="Custom logo" fallbackSrc="https://via.placeholder.com/150" /> {/*Here i can change my logo when i have one */}
             </Box>
