@@ -1,13 +1,25 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
+import App from 'components/App';
 import reportWebVitals from './reportWebVitals';
+import {ChakraProvider, ColorModeScript, Button, useColorMode,} from '@chakra-ui/react';
+import {MoonIcon, SunIcon} from '@chakra-ui/icons'
+import theme from 'styles/theme';
+
+export default function Toggle(){
+    const {colorMode, toggleColorMode} = useColorMode()
+    return (
+            <Button onClick={toggleColorMode}>
+                {colorMode === 'light' ? <MoonIcon /> : <SunIcon />}
+            </Button>
+           )
+}
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+  <ChakraProvider>
+      <ColorModeScript initialColorMode={theme.config.initialColorMode} />
+      <App />
+  </ChakraProvider>,
   document.getElementById('root')
 );
 
